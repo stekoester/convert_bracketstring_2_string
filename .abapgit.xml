@@ -15,6 +15,13 @@
     <item>/abaplint.json</item>
     <item>/azure-pipelines.yml</item>
    </IGNORE>
+   <REQUIREMENTS>
+    <item>
+     <COMPONENT>SAP_BASIS</COMPONENT>
+     <MIN_RELEASE>700</MIN_RELEASE>
+     <MIN_PATCH>0000</MIN_PATCH>
+    </item>
+   </REQUIREMENTS>
   </DATA>
  </asx:values>
 </asx:abap>
