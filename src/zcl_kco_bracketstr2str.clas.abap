@@ -32,7 +32,8 @@ CLASS ZCL_KCO_BRACKETSTR2STR IMPLEMENTATION.
                           with = repeat( val = substring_before( val = substring_after( val = lv_match
                                                                                         sub = '[' )
                                                                  sub = ']' )
-                                         occ = lv_repeat_times ) ).
+                                         occ = CONV i( substring_before( val = lv_match
+                                                                         sub = '[' ) ) ) ).
     ENDDO.
   ENDMETHOD.
 ENDCLASS.
