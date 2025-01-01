@@ -1,24 +1,22 @@
 CLASS zcl_kco_bracketstr2str DEFINITION
   PUBLIC
   FINAL
-  CREATE PUBLIC .
+  CREATE PUBLIC.
 
   PUBLIC SECTION.
 
     CLASS-METHODS convert_bracketstring
       IMPORTING
-        !iv_value       TYPE string
+        iv_value        TYPE string
       RETURNING
-        VALUE(rv_value) TYPE string .
+        VALUE(rv_value) TYPE string.
   PROTECTED SECTION.
   PRIVATE SECTION.
 ENDCLASS.
 
 
 
-CLASS ZCL_KCO_BRACKETSTR2STR IMPLEMENTATION.
-
-
+CLASS zcl_kco_bracketstr2str IMPLEMENTATION.
   METHOD convert_bracketstring.
     rv_value = iv_value.
     DO.
