@@ -9,6 +9,7 @@ CLASS lcl_test DEFINITION FOR TESTING
       test_get_value_deepnested FOR TESTING.
 ENDCLASS.       "lcl_Test
 
+
 CLASS lcl_test IMPLEMENTATION.
 
   METHOD test_get_value_normal.
@@ -38,4 +39,4 @@ CLASS lcl_test IMPLEMENTATION.
                                     exp = 'cccacccaaaaab' ).
   ENDMETHOD.                    "test_get_value_deepnested
 
-ENDCLASS.                    "lcl_test IMPLEMENTATION
+ENDCLASS.
