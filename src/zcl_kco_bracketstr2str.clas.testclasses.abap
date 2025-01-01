@@ -21,26 +21,25 @@ CLASS lcl_test DEFINITION FOR TESTING
 *?</asx:values>
 *?</asx:abap>
   PRIVATE SECTION.
-    METHODS:
-      test_get_value_normal FOR TESTING,
-      test_get_value_nested FOR TESTING,
-      test_get_value_deepnested FOR TESTING.
+    METHODS test_get_value_normal FOR TESTING.
+    METHODS test_get_value_nested FOR TESTING.
+    METHODS test_get_value_deepnested FOR TESTING.
 ENDCLASS.       "lcl_Test
 
 
 CLASS lcl_test IMPLEMENTATION.
   METHOD test_get_value_normal.
     cl_abap_unit_assert=>assert_equals( act = zcl_kco_bracketstr2str=>convert_bracketstring( '1[a]2[b]3[c]4[d]' )
-    exp = 'abbcccdddd' ).
+                                        exp = 'abbcccdddd' ).
   ENDMETHOD.
 
   METHOD test_get_value_nested.
     cl_abap_unit_assert=>assert_equals( act = zcl_kco_bracketstr2str=>convert_bracketstring( '2[3[a]b]' )
-    exp = 'aaabaaab' ).
+                                        exp = 'aaabaaab' ).
   ENDMETHOD.
 
   METHOD test_get_value_deepnested.
     cl_abap_unit_assert=>assert_equals( act = zcl_kco_bracketstr2str=>convert_bracketstring( '1[2[3[c]a]4[a]b]' )
-    exp = 'cccacccaaaaab' ).
+                                        exp = 'cccacccaaaaab' ).
   ENDMETHOD.
 ENDCLASS.
