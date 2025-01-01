@@ -1,41 +1,36 @@
-class ZCL_KCO_BRACKETSTR2STR definition
-  public
-  final
-  create public .
+CLASS zcl_kco_bracketstr2str DEFINITION
+  PUBLIC
+  FINAL
+  CREATE PUBLIC.
 
-public section.
+  PUBLIC SECTION.
 
-  class-methods CONVERT_BRACKETSTRING
-    importing
-      !IV_VALUE type STRING
-    returning
-      value(RV_VALUE) type STRING .
-protected section.
-private section.
+    CLASS-METHODS convert_bracketstring
+      IMPORTING
+        iv_value        TYPE string
+      RETURNING
+        VALUE(rv_value) TYPE string.
+  PROTECTED SECTION.
+  PRIVATE SECTION.
 ENDCLASS.
 
 
 
-CLASS ZCL_KCO_BRACKETSTR2STR IMPLEMENTATION.
-
-
+CLASS zcl_kco_bracketstr2str IMPLEMENTATION.
   METHOD convert_bracketstring.
-    DATA:
-      lv_repeat_times      TYPE i,
-      lv_repeat_value      TYPE string,
-      lv_rest_value_offset TYPE i,
-      lv_value             TYPE string,
-      lv_rest_value        TYPE string,
-      lv_after_offset      TYPE i,
-      lv_after_length      TYPE i,
-      lv_finished          TYPE char1.
+    DATA lv_repeat_times TYPE i.
+    DATA lv_repeat_value TYPE string.
+    DATA lv_rest_value_offset TYPE i.
+    DATA lv_value TYPE string.
+    DATA lv_rest_value TYPE string.
+    DATA lv_after_offset TYPE i.
+    DATA lv_after_length TYPE i.
+    DATA lv_finished TYPE char1.
 
-    DATA:
-      lr_finding  TYPE REF TO match_result,
-      lr_submatch TYPE REF TO submatch_result.
+    DATA lr_finding TYPE REF TO match_result.
+    DATA lr_submatch TYPE REF TO submatch_result.
 
-    DATA:
-      lt_findings   TYPE match_result_tab.
+    DATA lt_findings TYPE match_result_tab.
 
     rv_value = lv_value = iv_value.
     WHILE lv_finished EQ ''.
