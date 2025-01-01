@@ -3,15 +3,13 @@ CLASS lcl_test DEFINITION FOR TESTING
   "#AU Risk_Level Harmless
 .
   PRIVATE SECTION.
-    METHODS:
-      test_get_value_normal FOR TESTING,
-      test_get_value_nested FOR TESTING,
-      test_get_value_deepnested FOR TESTING.
+    METHODS test_get_value_normal FOR TESTING.
+    METHODS test_get_value_nested FOR TESTING.
+    METHODS test_get_value_deepnested FOR TESTING.
 ENDCLASS.       "lcl_Test
 
 
 CLASS lcl_test IMPLEMENTATION.
-
   METHOD test_get_value_normal.
     DATA:
       lv_value TYPE string.
@@ -38,5 +36,4 @@ CLASS lcl_test IMPLEMENTATION.
     cl_aunit_assert=>assert_equals( act = lv_value
                                     exp = 'cccacccaaaaab' ).
   ENDMETHOD.                    "test_get_value_deepnested
-
 ENDCLASS.

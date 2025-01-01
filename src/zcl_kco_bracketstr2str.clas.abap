@@ -4,7 +4,6 @@ CLASS zcl_kco_bracketstr2str DEFINITION
   CREATE PUBLIC.
 
   PUBLIC SECTION.
-
     CLASS-METHODS convert_bracketstring
       IMPORTING
         iv_value       TYPE string
