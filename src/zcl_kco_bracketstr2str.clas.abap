@@ -15,7 +15,9 @@ ENDCLASS.
 
 
 
-CLASS zcl_kco_bracketstr2str IMPLEMENTATION.
+CLASS ZCL_KCO_BRACKETSTR2STR IMPLEMENTATION.
+
+
   METHOD convert_bracketstring.
     DATA lv_match TYPE string.
     DATA lv_repeat_times TYPE string.
