@@ -29,7 +29,6 @@ ENDCLASS.       "lcl_Test
 
 
 CLASS lcl_test IMPLEMENTATION.
-
   METHOD test_get_value_normal.
     cl_abap_unit_assert=>assert_equals( act = zcl_kco_bracketstr2str=>convert_bracketstring( '1[a]2[b]3[c]4[d]' )
     exp = 'abbcccdddd' ).
@@ -44,5 +43,4 @@ CLASS lcl_test IMPLEMENTATION.
     cl_abap_unit_assert=>assert_equals( act = zcl_kco_bracketstr2str=>convert_bracketstring( '1[2[3[c]a]4[a]b]' )
     exp = 'cccacccaaaaab' ).
   ENDMETHOD.
-
 ENDCLASS.
