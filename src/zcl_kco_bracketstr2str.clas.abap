@@ -1,9 +1,10 @@
 CLASS zcl_kco_bracketstr2str DEFINITION
-  PUBLIC
-  FINAL
+  PUBLIC FINAL
   CREATE PUBLIC.
 
   PUBLIC SECTION.
+    TYPE-POOLS abap.
+
     CLASS-METHODS convert_bracketstring
       IMPORTING
         iv_value        TYPE string
@@ -24,15 +25,16 @@ CLASS zcl_kco_bracketstr2str IMPLEMENTATION.
     DATA lv_rest_value TYPE string.
     DATA lv_after_offset TYPE i.
     DATA lv_after_length TYPE i.
-    DATA lv_finished TYPE char1.
+    DATA lv_finished TYPE abap_bool.
 
     DATA lr_finding TYPE REF TO match_result.
     DATA lr_submatch TYPE REF TO submatch_result.
 
     DATA lt_findings TYPE match_result_tab.
 
-    rv_value = lv_value = iv_value.
-    WHILE lv_finished EQ ''.
+    lv_value = iv_value.
+    rv_value = iv_value.
+    WHILE lv_finished EQ abap_false.
       FIND ALL OCCURRENCES OF REGEX '(\d{0,})\[([^\[\]]+)\]' IN lv_value RESULTS lt_findings.
       LOOP AT lt_findings REFERENCE INTO lr_finding.
         IF sy-tabix EQ 1.
@@ -55,7 +57,7 @@ CLASS zcl_kco_bracketstr2str IMPLEMENTATION.
         lv_after_offset = lr_finding->offset + lr_finding->length.
       ENDLOOP.
       IF sy-subrc NE 0.
-        lv_finished = 'X'.
+        lv_finished = abap_true.
       ELSE.
         lv_rest_value_offset = lr_finding->offset + lr_finding->length.
         lv_rest_value = lv_value+lv_rest_value_offset.
